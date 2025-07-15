@@ -8,4 +8,19 @@
 @theme {
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-rammeto: 'Rammetto One', sans-serif;
+    --font-rajdhani: 'Rajdhani', sans-serif;
+    --font-nunito: 'Nunito Sans', sans-serif;
+    --color-purple-base: #892CCD;
+    --color-purple-light: #A85FDD;
+    --color-gray-100: #0F0F1A;
+    --color-gray-200: #131320;
+    --color-gray-300: #1A1B2D;
+    --color-gray-400: #45455F;
+    --color-gray-500: #7A7B9F;
+    --color-gray-600: #B5B6C9;
+    --color-gray-700: #E4E5EC;
+    --color-white: #FFFFFF;
+    --color-error-base: #D04048;
+    --color-error-light: #F77980;
 }
