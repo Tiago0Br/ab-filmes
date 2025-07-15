@@ -1,61 +1,143 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🎬 AB Filmes
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Um aplicativo fullstack desenvolvido em Laravel para gerenciamento de catálogo de filmes com sistema de avaliações.
 
-## About Laravel
+## 📋 Sobre o Projeto
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+AB Filmes é uma aplicação web que permite aos usuários criar e gerenciar um catálogo completo de filmes.
+O projeto foi desenvolvido com o objetivo de praticar o desenvolvimento web com o framework Laravel através de 
+operações CRUD (Create, Read, Update, Delete) de forma simples e eficiente.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### ✨ Funcionalidades
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- 📝 **Cadastro de Filmes**: Adicione novos filmes ao catálogo
+- ✏️ **Edição de Filmes**: Atualize informações dos filmes existentes
+- 🔍 **Busca de Filmes**: Sistema de pesquisa para encontrar filmes rapidamente
+- ⭐ **Sistema de Avaliações**: Usuários podem avaliar e comentar sobre os filmes
+- 👤 **Autenticação de Usuários**: Sistema de login e registro
 
-## Learning Laravel
+## 🚀 Tecnologias Utilizadas
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- **Backend**: Laravel 12
+- **Linguagem**: PHP 8.3+
+- **Frontend**: Blade Templates, TaiwindCSS, JavaScript, Vite
+- **Banco de Dados**: PostgreSQL
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## 📋 Pré-requisitos
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Antes de começar, certifique-se de ter instalado:
 
-## Laravel Sponsors
+- PHP 8.3 ou superior
+- Composer
+- Node.js e npm
+- Git
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## 🔧 Instalação
 
-### Premium Partners
+1. **Clone o repositório**
+   ```bash
+   git clone https://github.com/Tiago0Br/ab-filmes.git
+   cd ab-filmes
+   ```
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+2. **Instale as dependências do PHP**
+   ```bash
+   composer install
+   ```
 
-## Contributing
+3. **Instale as dependências do Node.js**
+   ```bash
+   npm install
+   ```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+4. **Configure o ambiente**
+   ```bash
+   cp .env.example .env
+   php artisan key:generate
+   ```
 
-## Code of Conduct
+5. **Configure o banco de dados**
+   - Edite o arquivo `.env` com suas configurações de banco de dados
+   - Para rodar o Docker compose:
+     ```bash
+     docker compose up -d
+     ```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+6. **Execute as migrações**
+   ```bash
+   php artisan migrate
+   ```
 
-## Security Vulnerabilities
+7. **Execute os seeders (opcional)**
+   ```bash
+   php artisan db:seed
+   ```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## 🏃‍♂️ Como Executar
 
-## License
+### Desenvolvimento
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Para iniciar o ambiente de desenvolvimento completo (recomendado):
+
+```bash
+composer run dev
+```
+
+Este comando inicia simultaneamente:
+- Servidor Laravel (porta 8000)
+- Queue worker
+- Log monitor (Pail)
+- Vite dev server (para assets)
+
+### Comandos Individuais
+
+Se preferir executar os serviços separadamente:
+
+```bash
+# Servidor web
+php artisan serve
+
+# Compilar assets para desenvolvimento
+npm run dev
+
+# Compilar assets para produção
+npm run build
+```
+
+## 📁 Estrutura do Projeto
+
+```
+ab-filmes/
+├── app/
+│   ├── Http/Controllers/    # Controladores da aplicação
+│   ├── Models/             # Modelos Eloquent
+│   └── ...
+├── database/
+│   ├── migrations/         # Migrações do banco de dados
+│   └── seeders/           # Seeders para popular o banco
+├── resources/
+│   ├── views/             # Templates Blade
+│   ├── css/               # Arquivos CSS
+│   └── js/                # Arquivos JavaScript
+├── routes/
+│   └── web.php            # Rotas da aplicação
+└── tests/                 # Testes automatizados
+```
+
+## 🎯 Objetivos de Aprendizado
+
+Este projeto foi desenvolvido para praticar:
+
+- ✅ Operações CRUD com Laravel
+- ✅ Sistema de autenticação
+- ✅ Relacionamentos entre modelos (Eloquent ORM)
+- ✅ Validação de formulários
+- ✅ Blade templating
+- ✅ Migrations e seeders
+- ✅ Estruturação de projetos Laravel
+
+## 👨‍💻 Autor
+
+**Tiago Lopes**
+
+- [Meu portfólio](https://www.tiagolopes.bio)
