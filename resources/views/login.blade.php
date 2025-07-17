@@ -6,6 +6,11 @@
                 alt="Background image"
                 class="h-full object-cover"
                 draggable="false">
+
+            <div class="absolute top-10">
+                <span>ab filmes</span>
+                <span>O guia definitivo para os amantes do cinema</span>
+            </div>
         </div>
         <div class="flex flex-col justify-center items-center">
             <div>

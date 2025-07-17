@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\MovieController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
@@ -10,5 +11,10 @@ Route::get('/register', [RegisterController::class, 'index'])->name('register.in
 Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
 
 Route::middleware('auth')->group(function () {
-    Route::view('/', 'welcome')->name('home');
+    Route::view('/', 'home')->name('home');
+
+    Route::group(['prefix' => '/movies'], function () {
+        Route::get('/create', [MovieController::class, 'create'])->name('movies.create');
+        Route::post('/', [MovieController::class, 'store'])->name('movies.store');
+    });
 });
