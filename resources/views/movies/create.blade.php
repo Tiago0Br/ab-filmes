@@ -1,4 +1,4 @@
-<x-layouts.app title="Novo filme - AB Filmes">
+<x-layouts.base title="Novo filme - AB Filmes">
     <main class="h-screen grid grid-cols-2">
         <div class="h-screen p-4">
             <img
@@ -32,4 +32,4 @@
             </form>
         </div>
     </main>
-</x-layouts.app>
+</x-layouts.base>

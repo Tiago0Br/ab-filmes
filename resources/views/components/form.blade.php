@@ -8,7 +8,7 @@
     $method = strtolower($method);
 @endphp
 
-<form method="{{ $method === 'get' ? 'get' : 'post' }}" {{ $attributes->class(["flex flex-col gap-4 w-[328px]"]) }}>
+<form method="{{ $method === 'get' ? 'get' : 'post' }}" {{ $attributes->class(["flex flex-col gap-4"]) }}>
     @if($method !== 'get')
         @csrf
     @endif

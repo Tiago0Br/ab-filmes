@@ -10,9 +10,18 @@ use Illuminate\View\View;
 
 class MovieController extends Controller
 {
-    public function index()
+    public function allMovies(): View
     {
-        //
+        $movies = Movie::query()->paginate(10);
+
+        return view('home', compact('movies'));
+    }
+
+    public function myMovies(): View
+    {
+        $movies = Movie::query()->paginate(10);
+
+        return view('my-movies', compact('movies'));
     }
 
     public function create(): View
@@ -33,25 +42,5 @@ class MovieController extends Controller
         ]);
 
         return to_route('home');
-    }
-
-    public function show(Movie $movie)
-    {
-        //
-    }
-
-    public function edit(Movie $movie)
-    {
-        //
-    }
-
-    public function update(UpdateMovieRequest $request, Movie $movie)
-    {
-        //
-    }
-
-    public function destroy(Movie $movie)
-    {
-        //
     }
 }

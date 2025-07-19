@@ -2,7 +2,7 @@
     'title' => 'AB Filmes'
 ])
 
-<x-layouts.app title="{{ $title }}">
+<x-layouts.base title="{{ $title }}">
     <main class="h-screen grid grid-cols-2">
         <div class="h-screen p-4">
             <img
@@ -33,4 +33,4 @@
             {{ $slot }}
         </div>
     </main>
-</x-layouts.app>
+</x-layouts.base>
