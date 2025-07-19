@@ -1,39 +1,8 @@
-<x-layouts.app title="Cadastro - AB Filmes">
-    <main class="h-screen grid grid-cols-2">
-        <div class="h-screen p-4">
-            <img
-                src="{{ asset('images/background.png') }}"
-                alt="Background image"
-                class="h-full object-cover"
-                draggable="false">
-        </div>
-        <div class="flex flex-col justify-center items-center">
-            <div>
-                <a href="{{ route('login') }}">Login</a>
-            </div>
-
-            <form method="post" action="{{ route('register.store') }}" class="flex flex-col">
-                @csrf
-
-                <h1>Cadastre-se</h1>
-                <input type="text" name="name" placeholder="Nome" />
-                @error('name')
-                    <span class="text-sm text-red-600">{{ $message }}</span>
-                @enderror
-                <input type="email" name="email" placeholder="E-mail" />
-                @error('email')
-                    <span class="text-sm text-red-600">{{ $message }}</span>
-                @enderror
-                <input type="password" name="password" placeholder="Senha" />
-                @error('password')
-                    <span class="text-sm text-red-600">{{ $message }}</span>
-                @enderror
-                <input type="password" name="password_confirmation" placeholder="Senha" />
-                @error('password_confirmation')
-                    <span class="text-sm text-red-600">{{ $message }}</span>
-                @enderror
-                <button type="submit">Entrar</button>
-            </form>
-        </div>
-    </main>
-</x-layouts.app>
+<x-layouts.guest title="Cadastro - AB Filmes">
+    <x-form action="{{ route('register.store') }}" title="Cadastre-se" button="Cadastrar">
+        <x-input type="text" name="name" placeholder="Nome" icon="{{ asset('/icons/person.svg') }}" />
+        <x-input type="email" name="email" placeholder="E-mail" icon="{{ asset('/icons/letter.svg') }}" />
+        <x-input type="password" name="password" placeholder="Senha" icon="{{ asset('/icons/secret.svg') }}" />
+        <x-input type="password" name="password_confirmation" placeholder="Confirme a senha" icon="{{ asset('/icons/secret.svg') }}" />
+    </x-form>
+</x-layouts.guest>
