@@ -24,19 +24,13 @@
                 </span>
             </div>
         </div>
-        <div class="flex flex-col justify-center items-center">
-            <div class="space-y-6">
-                <div class="w-full grid grid-cols-2 gap-2">
-                    <a href="{{ route('login') }} " class="text-center bg-gray-300 py-3 rounded-lg">
-                        Login
-                    </a>
-                    <a href="{{ route('register.index') }}" class="text-center bg-gray-300 py-3 rounded-lg">
-                        Cadastro
-                    </a>
-                </div>
+        <div class="m-auto space-y-10">
+            <x-nav>
+                <x-nav.item route="login">Login</x-nav.item>
+                <x-nav.item route="register.index">Cadastro</x-nav.item>
+            </x-nav>
 
-                {{ $slot }}
-            </div>
+            {{ $slot }}
         </div>
     </main>
 </x-layouts.app>
