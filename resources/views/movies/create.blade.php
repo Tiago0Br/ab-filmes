@@ -1,35 +1,17 @@
-<x-layouts.base title="Novo filme - AB Filmes">
-    <main class="h-screen grid grid-cols-2">
-        <div class="h-screen p-4">
-            <img
-                src="{{ asset('images/background.png') }}"
-                alt="Background image"
-                class="h-full object-cover"
-                draggable="false">
+<x-layouts.app title="Novo filme - AB Filmes">
+    <x-form action="{{ route('movies.store') }}" class="h-[490px] w-full flex-row gap-4">
+        <x-input-file
+            name="image"
+            accept="image/png"
+            placeholder="Fazer upload"
+            icon="{{ asset('/icons/upload.svg') }}"
+            class="h-full w-[381px]"
+        />
+        <div class="h-full flex flex-col gap-3">
+            <x-input type="text" name="title" placeholder="Título" />
+            <x-input type="number" name="year" placeholder="Year" />
+            <x-input type="text" name="category" placeholder="Categoria" />
+            <x-textarea name="description" placeholder="Descrição"></x-textarea>
         </div>
-        <div class="flex flex-col justify-center items-center">
-            <form method="post" action="{{ route('movies.store') }}" class="flex flex-col">
-                @csrf
-
-                <h1>Novo filme</h1>
-                <input type="text" name="title" placeholder="Título" />
-                @error('title')
-                <span class="text-sm text-red-600">{{ $message }}</span>
-                @enderror
-                <input type="number" name="year" placeholder="Year" />
-                @error('year')
-                <span class="text-sm text-red-600">{{ $message }}</span>
-                @enderror
-                <input type="text" name="category" placeholder="Categoria" />
-                @error('category')
-                <span class="text-sm text-red-600">{{ $message }}</span>
-                @enderror
-                <textarea name="description" placeholder="Descrição"></textarea>
-                @error('description')
-                <span class="text-sm text-red-600">{{ $message }}</span>
-                @enderror
-                <button type="submit">Criar filme</button>
-            </form>
-        </div>
-    </main>
-</x-layouts.base>
+    </x-form>
+</x-layouts.app>

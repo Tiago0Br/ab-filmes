@@ -8,7 +8,7 @@
     $method = strtolower($method);
 @endphp
 
-<form method="{{ $method === 'get' ? 'get' : 'post' }}" {{ $attributes->class(["flex flex-col gap-4"]) }}>
+<form method="{{ $method === 'get' ? 'get' : 'post' }}" {{ $attributes->class(["flex flex-col gap-3"]) }}>
     @if($method !== 'get')
         @csrf
     @endif
@@ -20,12 +20,10 @@
     @if(! empty($title))
         <h1 class="text-2xl font-rammeto mb-4 text-center">{{ $title }}</h1>
     @endif
-    <div class="flex flex-col gap-3">
-        {{ $slot }}
-    </div>
+    {{ $slot }}
 
     @if($button !== null)
-        <x-button type="submit">
+        <x-button type="submit" class="mt-4">
             {{ $button }}
         </x-button>
     @endif

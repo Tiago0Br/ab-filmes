@@ -8,8 +8,8 @@
     </x-nav>
     <div class="flex items-center gap-2">
         <span class="text-gray-600">Olá, {{ auth()->user()?->getFirstName() ?? 'Anônimo' }}</span>
-        <x-form action="{{ route('logout') }}">
-            <button class="cursor-pointer">
+        <x-form action="{{ route('logout') }}" enctype="multipart/form-data">
+            <button class="flex justify-center rounded-md cursor-pointer bg-gray-300 size-8">
                 <img src="{{ asset('/icons/logout.svg') }}" alt="Botão de deslogar">
             </button>
         </x-form>

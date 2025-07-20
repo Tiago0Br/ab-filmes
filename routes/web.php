@@ -13,9 +13,9 @@ Route::post('/register', [RegisterController::class, 'store'])->name('register.s
 
 Route::middleware('auth')->group(function () {
     Route::get('/', [MovieController::class, 'allMovies'])->name('home');
-    Route::get('/my-movies', [MovieController::class, 'myMovies'])->name('my-movies');
 
     Route::group(['prefix' => '/movies'], function () {
+        Route::get('/', [MovieController::class, 'myMovies'])->name('my-movies');
         Route::get('/create', [MovieController::class, 'create'])->name('movies.create');
         Route::post('/', [MovieController::class, 'store'])->name('movies.store');
     });
