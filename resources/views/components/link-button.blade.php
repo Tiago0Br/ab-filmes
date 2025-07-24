@@ -1,10 +1,13 @@
 @props([
-    'icon' => null
+    'icon' => null,
+    'variant' => 'button'
 ])
 
 <a {{
     $attributes->class([
-        'flex items-center gap-2 justify-center p-2 cursor-pointer bg-purple-base hover:bg-purple-base/80 transition-colors rounded-md'
+        'flex items-center gap-2 justify-center cursor-pointer',
+        'p-2 bg-purple-base hover:bg-purple-base/80 transition-colors rounded-md' => $variant === 'button',
+        'text-gray-500' => $variant === 'link'
     ])
 }}>
     @if($icon !== null)

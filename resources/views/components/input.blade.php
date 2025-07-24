@@ -6,7 +6,7 @@
 <div>
     <div class="flex items-center gap-2 rounded-md border border-gray-500/20 px-3">
         @if($icon !== null)
-            <img src="{{ $icon }}" alt="" class="size-5" />
+            <img src="{{ $icon }}" alt="" class="size-5" draggable="false" />
         @endif
         <input
             {{ $attributes->class(['w-full outline-none py-2']) }}
