@@ -18,9 +18,12 @@
             </div>
         @endif
 
-        <div class="w-full grid grid-cols 4">
+        <div class="w-full grid grid-cols-4">
             @foreach($movies as $movie)
-                <div>{{ $movie->title }}</div>
+                <div class="flex flex-col items-center gap-4">
+                    <img src="{{ asset('storage/' . $movie->cover) }}" alt="{{ $movie->title }}" draggable="false">
+                    <p>{{ $movie->title }}</p>
+                </div>
             @endforeach
         </div>
     </main>

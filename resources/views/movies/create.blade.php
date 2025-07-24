@@ -1,7 +1,11 @@
 <x-layouts.app title="Novo filme - AB Filmes">
-    <x-form action="{{ route('movies.store') }}" class="h-[490px] w-full flex-row justify-center gap-12">
+    <x-form
+        action="{{ route('movies.store') }}"
+        class="h-[490px] w-full flex-row justify-center gap-12"
+        enctype="multipart/form-data"
+    >
         <x-input-file
-            name="image"
+            name="cover"
             accept="image/png"
             placeholder="Fazer upload"
             icon="{{ asset('/icons/upload.svg') }}"

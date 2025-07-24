@@ -32,12 +32,19 @@ class MovieController extends Controller
     public function store(StoreMovieRequest $request): RedirectResponse
     {
         $data = $request->only(['title', 'year', 'category', 'description']);
+        $file = $request->cover;
+
+        $coverPath = $file->store('upload');
+        if (! $coverPath) {
+            return back()->withErrors(['cover' => 'Não foi possível fazer o upload da imagem.']);
+        }
 
         Movie::create([
             'title' => $data['title'],
             'year' => $data['year'],
             'category' => $data['category'],
             'description' => $data['description'],
+            'cover' => $coverPath,
             'created_by' => auth()->user()->id,
         ]);
 
