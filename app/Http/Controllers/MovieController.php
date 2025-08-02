@@ -3,25 +3,32 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreMovieRequest;
-use App\Http\Requests\UpdateMovieRequest;
 use App\Models\Movie;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 
 class MovieController extends Controller
 {
-    public function allMovies(): View
+    public function explore(): View
     {
-        $movies = Movie::query()->paginate(10);
+        $search = request('search') ?: '';
+        $movies = Movie::query()
+            ->where('created_by', '!=', auth()->user()->id)
+            ->when($search, fn ($query, $search) => $query->where('title', 'ilike', "%$search%"))
+            ->paginate(10);
 
-        return view('home', compact('movies'));
+        return view('home', compact('movies', 'search'));
     }
 
     public function myMovies(): View
     {
-        $movies = Movie::query()->paginate(10);
+        $search = request('search') ?: '';
+        $movies = Movie::query()
+            ->where('created_by', '=', auth()->user()->id)
+            ->when($search, fn ($query, $search) => $query->where('title', 'ilike', "%$search%"))
+            ->paginate(10);
 
-        return view('my-movies', compact('movies'));
+        return view('my-movies', compact('movies', 'search'));
     }
 
     public function create(): View

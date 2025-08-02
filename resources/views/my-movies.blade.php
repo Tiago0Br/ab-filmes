@@ -4,7 +4,12 @@
             <h1 class="font-rammeto text-2xl">Meus filmes</h1>
             <div class="flex items-center gap-4">
                 <x-form method="GET">
-                    <x-input name="search" placeholder="Pesquisar" icon="{{ asset('/icons/magnifying-glass.svg') }}" />
+                    <x-input
+                        name="search"
+                        placeholder="Pesquisar"
+                        icon="{{ asset('/icons/magnifying-glass.svg') }}"
+                        value="{{ $search }}"
+                    />
                 </x-form>
                 <x-link-button href="{{ route('movies.create') }}" icon="{{ asset('/icons/new.svg') }}">
                     Novo

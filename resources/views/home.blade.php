@@ -3,7 +3,12 @@
         <div class="flex justify-between items-center">
             <h1 class="font-rammeto text-2xl">Explorar</h1>
             <x-form method="GET">
-                <x-input name="search" placeholder="Pesquisar" icon="{{ asset('/icons/magnifying-glass.svg') }}" />
+                <x-input
+                    name="search"
+                    placeholder="Pesquisar"
+                    icon="{{ asset('/icons/magnifying-glass.svg') }}"
+                    value="{{ $search }}"
+                />
             </x-form>
         </div>
 

@@ -12,7 +12,7 @@ Route::get('/register', [RegisterController::class, 'index'])->name('register.in
 Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/', [MovieController::class, 'allMovies'])->name('home');
+    Route::get('/', [MovieController::class, 'explore'])->name('home');
 
     Route::group(['prefix' => '/movies'], function () {
         Route::get('/', [MovieController::class, 'myMovies'])->name('my-movies');
