@@ -18,9 +18,9 @@
             </div>
         @endif
 
-        <div class="w-full grid grid-cols 4">
+        <div class="w-full flex flex-wrap gap-4">
             @foreach($movies as $movie)
-                <div>{{ $movie->title }}</div>
+                <x-movie-card :movie="$movie" />
             @endforeach
         </div>
     </main>
