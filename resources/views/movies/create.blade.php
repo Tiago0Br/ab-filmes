@@ -9,6 +9,7 @@
             accept="image/png"
             placeholder="Fazer upload"
             icon="{{ asset('/icons/upload.svg') }}"
+            message="Formato recomendado: 762x980"
             class="h-full w-[381px]"
         />
         <div class="h-full md:w-[641px] flex flex-col gap-3">

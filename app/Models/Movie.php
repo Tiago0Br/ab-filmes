@@ -26,6 +26,8 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Movie whereTitle($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Movie whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Movie whereYear($value)
+ * @property string $cover
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Movie whereCover($value)
  * @mixin \Eloquent
  */
 class Movie extends Model

@@ -2,6 +2,7 @@
     'name' => '',
     'icon' => null,
     'placeholder' => '',
+    'message' => null,
 ])
 
 <div class="relative">
@@ -24,7 +25,9 @@
         @endif
         <p class="text-gray-500 text-center" id="placeholder-{{ $name }}">{{ $placeholder }}</p>
         <p class="text-gray-700 text-center text-sm font-medium hidden" id="filename-{{ $name }}"></p>
-        <p class="mt-4 text-gray-500 text-center">Formato recomendado: 762x980</p>
+        @if($message !== null)
+            <p class="mt-4 text-gray-500 text-center">{{ $message }}</p>
+        @endif
 
     </div>
 
