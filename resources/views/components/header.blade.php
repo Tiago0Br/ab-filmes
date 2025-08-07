@@ -11,10 +11,7 @@
         <x-form method="GET" action="{{ route('profile') }}">
             <button class="cursor-pointer">
                 @if(auth()->user()?->avatar)
-                    <img
-                        src="{{ asset('/storage/' . auth()->user()?->avatar) }}"
-                        alt="Avatar do usuário" class="size-8 rounded-lg border border-[#7435DB]"
-                    >
+                    <x-avatar image="{{ auth()->user()?->avatar }}" />
                 @else
                     <x-ik-user class="text-gray-600 size-8" title="Perfil" />
                 @endif

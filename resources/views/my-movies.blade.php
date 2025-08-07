@@ -17,16 +17,6 @@
             </div>
         </div>
 
-        @if ($movies->isEmpty())
-            <div class="flex items-center justify-center">
-                <p>Nenhum filme cadastrado...</p>
-            </div>
-        @endif
-
-        <div class="w-full flex flex-wrap gap-4">
-            @foreach($movies as $movie)
-                <x-movie-card :movie="$movie" />
-            @endforeach
-        </div>
+        <x-movie-list :movies="$movies" />
     </main>
 </x-layouts.app>

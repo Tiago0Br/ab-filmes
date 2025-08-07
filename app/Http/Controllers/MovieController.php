@@ -57,4 +57,9 @@ class MovieController extends Controller
 
         return to_route('home');
     }
+
+    public function show(Movie $movie): View
+    {
+        return view('movies.show', compact('movie'));
+    }
 }
