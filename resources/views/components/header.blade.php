@@ -8,7 +8,7 @@
     </x-nav>
     <div class="flex items-center gap-4">
         <span class="text-gray-600">Olá, {{ auth()->user()?->getFirstName() }}</span>
-        <x-form method="GET" action="{{ route('profile') }}">
+        <a href="{{ route('profile') }}">
             <button class="cursor-pointer">
                 @if(auth()->user()?->avatar)
                     <x-avatar image="{{ auth()->user()?->avatar }}" />
@@ -16,7 +16,7 @@
                     <x-ik-user class="text-gray-600 size-8" title="Perfil" />
                 @endif
             </button>
-        </x-form>
+        </a>
         <x-form action="{{ route('logout') }}" enctype="multipart/form-data">
             <button class="flex justify-center rounded-md cursor-pointer bg-gray-300 size-8">
                 <img src="{{ asset('/icons/logout.svg') }}" alt="Botão de deslogar">

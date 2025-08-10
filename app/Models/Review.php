@@ -4,12 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Support\Carbon;
 
 /**
- *
- *
  * @property int $id
  * @property int $movie_id
  * @property int $user_id
@@ -27,12 +26,19 @@ use Illuminate\Support\Carbon;
  * @method static Builder<static>|Review whereRating($value)
  * @method static Builder<static>|Review whereUpdatedAt($value)
  * @method static Builder<static>|Review whereUserId($value)
+ * @property-read \App\Models\Movie $movie
+ * @property-read \App\Models\User $user
  * @mixin \Eloquent
  */
 class Review extends Model
 {
-    public function movie(): HasOne
+    public function movie(): BelongsTo
     {
-        return $this->hasOne(Movie::class);
+        return $this->belongsTo(Movie::class);
+    }
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
     }
 }

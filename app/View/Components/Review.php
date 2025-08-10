@@ -2,16 +2,15 @@
 
 namespace App\View\Components;
 
+use App\Models\Review as ReviewModel;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
 class Review extends Component
 {
-    public function __construct(
-        /** @var int[] $ratings */
-        public array $ratings = []
-    ) {
+    public function __construct(public ReviewModel $review)
+    {
     }
 
     public function render(): View|Closure|string
@@ -19,15 +18,27 @@ class Review extends Component
         return view('components.review');
     }
 
-    public function getTotalRatings(): int
+    public function getUserName(): string
     {
-        return count($this->ratings);
+        return $this->review->user->name;
     }
 
-    public function getAverage(): float
+    public function getUserAvatar(): ?string
     {
-        return $this->getTotalRatings() !== 0
-            ? round(num: array_sum($this->ratings) / $this->getTotalRatings(), precision: 1)
-            : 0.0;
+        return $this->review->user->avatar;
+    }
+
+    public function isFromLoggedUser(): bool
+    {
+        return auth()->check() && auth()->user()->id === $this->review->user->id;
+    }
+
+    public function getReviewsMessage(): string
+    {
+        $reviewsCount = $this->review->user->reviews()->count();
+
+        return $reviewsCount === 1
+            ? "$reviewsCount filme avaliado"
+            : "$reviewsCount filmes avaliados";
     }
 }

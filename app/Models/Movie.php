@@ -8,8 +8,6 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Carbon;
 
 /**
- *
- *
  * @property int $id
  * @property string $title
  * @property int $year
@@ -31,6 +29,8 @@ use Illuminate\Support\Carbon;
  * @method static Builder<static>|Movie whereYear($value)
  * @property string $cover
  * @method static Builder<static>|Movie whereCover($value)
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Review> $reviews
+ * @property-read int|null $reviews_count
  * @mixin \Eloquent
  */
 class Movie extends Model

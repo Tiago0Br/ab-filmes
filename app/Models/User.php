@@ -4,12 +4,11 @@ namespace App\Models;
 
 use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 /**
- * 
- *
  * @property int $id
  * @property string $name
  * @property string $email
@@ -34,6 +33,8 @@ use Illuminate\Notifications\Notifiable;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereUpdatedAt($value)
  * @property string|null $avatar
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereAvatar($value)
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Review> $reviews
+ * @property-read int|null $reviews_count
  * @mixin \Eloquent
  */
 class User extends Authenticatable
@@ -78,5 +79,10 @@ class User extends Authenticatable
     public function getFirstName(): string
     {
         return explode(' ', $this->name)[0];
+    }
+
+    public function reviews(): HasMany
+    {
+        return $this->hasMany(Review::class);
     }
 }

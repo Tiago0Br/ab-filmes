@@ -60,6 +60,8 @@ class MovieController extends Controller
 
     public function show(Movie $movie): View
     {
-        return view('movies.show', compact('movie'));
+        $reviews = $movie->reviews()->paginate(10);
+
+        return view('movies.show', compact('movie', 'reviews'));
     }
 }
