@@ -30,15 +30,21 @@ class Review extends Component
 
     public function isFromLoggedUser(): bool
     {
-        return auth()->check() && auth()->user()->id === $this->review->user->id;
+        return auth()->check()
+            && auth()->user()->id === $this->review->user->id;
     }
 
     public function getReviewsMessage(): string
     {
         $reviewsCount = $this->review->user->reviews()->count();
 
+        return $reviewsCount . ' ' . $this->getSingularOrPluralText($reviewsCount);
+    }
+
+    private function getSingularOrPluralText(int $reviewsCount): string
+    {
         return $reviewsCount === 1
-            ? "$reviewsCount filme avaliado"
-            : "$reviewsCount filmes avaliados";
+            ? "filme avaliado"
+            : "filmes avaliados";
     }
 }
