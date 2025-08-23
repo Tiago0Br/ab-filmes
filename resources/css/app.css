@@ -5,6 +5,8 @@
 @source '../**/*.blade.php';
 @source '../**/*.js';
 
+@plugin "daisyui";
+
 @layer utilities {
     input::-webkit-outer-spin-button,
     input::-webkit-inner-spin-button {

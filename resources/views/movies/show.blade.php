@@ -44,10 +44,7 @@
         <div class="flex flex-col gap-10">
             <div class="flex justify-between items-center">
                 <h2 class="font-rajdhani text-xl font-semibold">Avaliações</h2>
-                <x-button class="gap-1">
-                    <x-heroicon-o-star class="size-6" />
-                    Avaliar filme
-                </x-button>
+                <x-review-modal :movie="$movie" />
             </div>
 
             <div class="flex flex-col gap-3">
