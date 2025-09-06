@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\MovieReviewRequest;
 use App\Http\Requests\StoreMovieRequest;
 use App\Models\Movie;
+use App\Models\Review;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class MovieController extends Controller
@@ -63,5 +66,19 @@ class MovieController extends Controller
         $reviews = $movie->reviews()->paginate(10);
 
         return view('movies.show', compact('movie', 'reviews'));
+    }
+
+    public function review(Movie $movie, MovieReviewRequest $request): RedirectResponse
+    {
+        $data = $request->only(['rating', 'comment']);
+
+        Review::create([
+            'movie_id' => $movie->id,
+            'user_id' => auth()->user()?->id,
+            'rating' => $data['rating'],
+            'comment' => $data['comment'],
+        ]);
+
+        return to_route('movies.show', $movie);
     }
 }

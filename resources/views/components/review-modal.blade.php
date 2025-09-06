@@ -10,7 +10,7 @@
         <h3 class="text-lg font-semibold text-gray-700 font-rajdhani">
             Avaliar filme
         </h3>
-        <x-form class="mt-6 gap-6">
+        <x-form class="mt-6 gap-6" action="{{ route('movies.review', $movie) }}">
             <div class="flex gap-6">
                 <div class="w-[137px] h-[176px]">
                     <img
@@ -36,12 +36,14 @@
                     <div class="mt-8">
                         <span>Sua avaliação:</span>
 
-                        <div class="flex gap-1">
-                            @for($i = 1; $i <= 5; $i++)
-                                <button type="button" class="cursor-pointer">
-                                    <x-heroicon-o-star class="size-6 text-purple-light" />
-                                </button>
-                            @endfor
+                        <div class="flex gap-1" id="star-rating">
+                            <div class="rating">
+                                <input type="radio" name="rating" class="mask mask-star-2 bg-purple-light" aria-label="1 star" value="1" />
+                                <input type="radio" name="rating" class="mask mask-star-2 bg-purple-light" aria-label="2 star" value="2" />
+                                <input type="radio" name="rating" class="mask mask-star-2 bg-purple-light" aria-label="3 star" value="3" />
+                                <input type="radio" name="rating" class="mask mask-star-2 bg-purple-light" aria-label="4 star" value="4" />
+                                <input type="radio" name="rating" class="mask mask-star-2 bg-purple-light" aria-label="5 star" value="5" />
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -54,3 +56,4 @@
         </x-form>
     </div>
 </dialog>
+
