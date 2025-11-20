@@ -3,8 +3,14 @@
         <img src="{{ asset('/images/logo.png') }}" alt="Logo AB Filmes" draggable="false">
     </div>
     <x-nav>
-        <x-nav.item route="home">Explorar</x-nav.item>
-        <x-nav.item route="my-movies">Meus filmes</x-nav.item>
+        <x-nav.item route="home">
+            <x-phosphor-popcorn class="size-5" />
+            Explorar
+        </x-nav.item>
+        <x-nav.item route="my-movies">
+            <x-mdi-movie-open class="size-5" />
+            Meus filmes
+        </x-nav.item>
     </x-nav>
     <div class="flex items-center gap-4">
         <span class="text-gray-600">Olá, {{ auth()->user()?->getFirstName() }}</span>

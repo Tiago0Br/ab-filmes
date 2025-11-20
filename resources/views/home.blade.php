@@ -3,15 +3,10 @@
         <div class="flex justify-between items-center">
             <h1 class="font-rammeto text-2xl">Explorar</h1>
             <x-form method="GET">
-                <x-input
-                    name="search"
-                    placeholder="Pesquisar"
-                    icon="{{ asset('/icons/magnifying-glass.svg') }}"
-                    value="{{ $search }}"
-                />
+                <x-form.search-input :search="$search" />
             </x-form>
         </div>
 
-        <x-movie-list :movies="$movies" />
+        <x-movie-list :movies="$movies" :search="$search" />
     </main>
 </x-layouts.app>

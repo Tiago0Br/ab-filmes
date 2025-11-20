@@ -20,7 +20,7 @@ Route::middleware('auth')->group(function () {
         Route::put('/', [UserProfileController::class, 'store'])->name('profile.update');
     });
 
-    Route::group(['prefix' => '/movies'], function () {
+    Route::prefix('movies')->group(function () {
         Route::get('/', [MovieController::class, 'myMovies'])->name('my-movies');
         Route::get('/create', [MovieController::class, 'create'])->name('movies.create');
         Route::post('/', [MovieController::class, 'store'])->name('movies.store');
